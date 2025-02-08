@@ -1,0 +1,442 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0C4n.ttf) format('truetype');
+}
+.visible-modal {
+  display: flex;
+}
+.hidden-modal {
+  display: none;
+}
+#modal-form {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #000000;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+/* card */
+.card__inner {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  background-color: transparent;
+  perspective: 1000px;
+  /* width: 100%; */
+  /* height: 100%; */
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.card__front {
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: lightgrey;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  box-shadow: 4px 4px #323232;
+}
+.loading-shade-create-form {
+  right: 0px;
+  position: absolute;
+  width: 290px;
+  height: 100%;
+  background: #000000a1;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.card__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.title {
+  margin: 20px 0 20px 0;
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  color: #323232;
+}
+.card__input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  background-color: #fff;
+  box-shadow: 4px 4px #323232;
+  font-size: 15px;
+  font-weight: 600;
+  color: #323232;
+  padding: 5px 10px;
+  outline: none;
+}
+.card__input::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+.card__input:focus {
+  border: 2px solid #2d8cf0;
+}
+.card__btn:active,
+.button-confirm:active {
+  box-shadow: 0px 0px #323232;
+  transform: translate(3px, 3px);
+}
+.card__btn {
+  margin: 20px 0 20px 0;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  background-color: #fff;
+  box-shadow: 4px 4px #323232;
+  font-size: 17px;
+  font-weight: 600;
+  color: #323232;
+  cursor: pointer;
+}
+.loader {
+  width: 60px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.loader .ball {
+  list-style: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.loader .ball:nth-child(1) {
+  animation: bounce-1 2.1s ease-in-out infinite;
+}
+.loader .ball:nth-child(2) {
+  animation: bounce-2 2.1s ease-in-out 0.3s infinite;
+}
+.loader .ball:nth-child(3) {
+  animation: bounce-3 2.1s ease-in-out 0.6s infinite;
+}
+@keyframes bounce-1 {
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@keyframes bounce-2 {
+  50% {
+    transform: translateY(-18px);
+  }
+}
+@keyframes bounce-3 {
+  50% {
+    transform: translateY(-18px);
+  }
+}
+#add-button {
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  right: 0vw;
+  top: 88vh;
+  width: max-content;
+  height: 100%;
+  justify-content: flex-end;
+  align-content: flex-end;
+}
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: black;
+  /* plus sign */
+  /* text */
+  /* hover effect on button width */
+  /* button click effect*/
+}
+.Btn .sign {
+  width: 100%;
+  font-size: 2em;
+  color: white;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Btn .text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 500;
+  transition-duration: 0.3s;
+}
+.Btn:hover {
+  width: 125px;
+  border-radius: 0px;
+  transition-duration: 0.3s;
+  /* hover effect button's text */
+}
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 20px;
+}
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+.star-button {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.star-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.star-button svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  transition: all 0.3s;
+  fill: #666;
+}
+.star-button svg:hover {
+  transform: scale(1.1);
+}
+.star-button input:checked ~ svg {
+  fill: gold;
+  transform: scale(1.1);
+}
+.close-button {
+  bottom: 177px;
+  left: 105px;
+  z-index: 2;
+  position: relative;
+  width: 6em;
+  height: 3em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.close-button .X,
+.close-button .Y {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+}
+.close-button .X {
+  transform: rotate(45deg);
+}
+.close-button .Y {
+  transform: rotate(-45deg);
+}
+.close-button:hover {
+  background-color: rgba(210, 0, 0, 0.59);
+}
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  overflow: hidden;
+  min-height: 400px;
+}
+html {
+  background: #FFFFFF;
+  background: radial-gradient(at left top, #FFFFFF, #BAB7B0);
+  width: 100%;
+  height: 100%;
+}
+.title {
+  opacity: 100%;
+  transition-delay: 1s;
+  transition: 1s ease-in;
+}
+.hidden-title {
+  opacity: 0;
+}
+.edit-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #141414;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+.edit-button svg {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+.edit-button svg path {
+  fill: white;
+}
+.edit-button:hover {
+  width: 80px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: #34399b;
+  align-items: center;
+}
+.edit-button:hover svg {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.edit-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+  content: "Editar";
+  color: white;
+}
+.edit-button::before {
+  display: none;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+.delete-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #141414;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+.delete-button svg {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+.delete-button svg path {
+  fill: white;
+}
+.delete-button:hover {
+  width: 80px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: #ff4545;
+  align-items: center;
+}
+.delete-button:hover svg {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.delete-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+  content: "Borrar";
+  color: white;
+}
+.delete-button::before {
+  display: none;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+.delete-col,
+.edit-col {
+  width: 100px;
+}
+td {
+  padding: 10px;
+  text-align: center;
+}
+#table_div {
+  overflow: auto;
+}
+#contacts_table {
+  min-width: 782px;
+  max-width: 100vw;
+  width: 100%;
+}

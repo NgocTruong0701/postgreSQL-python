@@ -1,0 +1,38 @@
+// Star button extracted from https://uiverse.io/andrew-demchenk0/light-lionfish-40 (Transtaled to LESS)
+@star-button-size: 30px;
+@star-button-color-checked: gold;
+@star-button-color-unchecked: #666;
+
+.star-button {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: @star-button-size;
+    width: @star-button-size;
+    transition: all 0.3s;
+    fill: @star-button-color-unchecked;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  input:checked ~ svg {
+    fill: @star-button-color-checked;
+    transform: scale(1.1);
+  }
+}

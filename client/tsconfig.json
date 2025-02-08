@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"outDir": "./static",
+		"rootDir": "./src",
+		"strict": true,
+		"moduleResolution": "node",
+		"baseUrl": "./src",
+		"paths": {
+			"@/api/*": [
+				"api/*"
+			]
+		},
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}

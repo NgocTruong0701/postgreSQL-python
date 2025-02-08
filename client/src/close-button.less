@@ -1,0 +1,35 @@
+// Close button
+.close-button {
+  bottom: 177px;
+  left: 105px;
+  z-index: 2;
+  position: relative;
+  width: 6em;
+  height: 3em;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  .X,
+  .Y {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 2em;
+    height: 1.5px;
+    background-color: #fff;
+  }
+
+  .X {
+    transform: rotate(45deg);
+  }
+
+  .Y {
+    transform: rotate(-45deg);
+  }
+}
+
+.close-button:hover {
+  background-color: rgba(210, 0, 0, 0.59);
+}

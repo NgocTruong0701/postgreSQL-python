@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import "form.less";
+@import "addButton.less";
+@import "favButton.less";
+@import "close-button.less";
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  overflow: hidden;
+  min-height: 400px;
+}
+
+html {
+  background: #FFFFFF;
+  background: radial-gradient(at left top, #FFFFFF, #BAB7B0);
+  width: 100%;
+  height: 100%;
+}
+
+//  Style header
+.title {
+  opacity: 100%;
+  transition-delay: 1s;
+  transition: 1s ease-in;
+}
+
+.hidden-title {
+  opacity: 0;
+}
+
+
+// Edit button extracted from https://uiverse.io/aaronross1/kind-bobcat-81 (Transtaled to LESS)
+@edit-button-size: 40px;
+@edit-button-expanded-width: 80px;
+@edit-button-expanded-bg: rgb(52, 57, 155);
+@edit-button-expanded-text: "Editar";
+
+@delete-button-expanded-bg: rgb(255, 69, 69);
+@delete-button-expanded-text: "Borrar";
+
+// Mixin for common button styles
+.button-common(@size, @expanded-width, @expanded-bg, @expanded-text) {
+  width: @size;
+  height: @size;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+
+  svg {
+    width: 17px;
+    transition-duration: 0.3s;
+
+    path {
+      fill: white;
+    }
+  }
+
+  &:hover {
+    width: @expanded-width;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: @expanded-bg;
+    align-items: center;
+
+    svg {
+      width: 20px;
+      transition-duration: 0.3s;
+      transform: translateY(60%);
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+
+    &::before {
+      display: block;
+      padding-right: 10px;
+      font-size: 13px;
+      opacity: 1;
+      transform: translateY(0px);
+      transition-duration: 0.3s;
+      content: @expanded-text;
+      color: white;
+    }
+  }
+
+  &::before {
+    display: none;
+    transition-duration: 0.3s;
+    font-size: 2px;
+  }
+}
+
+// Create classes using the mixin
+.edit-button {
+  .button-common(@edit-button-size, @edit-button-expanded-width, @edit-button-expanded-bg, @edit-button-expanded-text);
+}
+
+.delete-button {
+  .button-common(@edit-button-size, @edit-button-expanded-width, @delete-button-expanded-bg, @delete-button-expanded-text);
+}
+
+//Style table
+@table-pading: 10px;
+@table-buttons-space: @table-pading * 2;
+
+.delete-col,
+.edit-col {
+  width: @edit-button-expanded-width + @table-buttons-space;
+}
+
+td {
+  padding: @table-pading;
+  text-align: center;
+}
+
+#table_div {
+  overflow: auto;
+}
+
+#contacts_table {
+  min-width: 782px;
+  max-width: 100vw;
+  width: 100%;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "phonebook-client",
+  "version": "1.0.0",
+  "description": "Phonebook from the Lenor's portfolio builded with Typescript and LESS. With Python FAST API and PostgreSQL as database in the backend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-less": "lessc src/style.less static/style.css",
+    "build": "npm run build-less && tsc",
+    "dev": "concurrently \"uvicorn main:app --reload\" \"less-watch-compiler src static style.less\" \"tsc --watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangle23/postgreSQL-python.git"
+  },
+  "keywords": [
+    "Typescript",
+    "LESS",
+    "Python",
+    "FAST",
+    "API",
+    "PostgresSQL"
+  ],
+  "author": "Quang Le",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quangle23/postgreSQL-python/issues"
+  },
+  "homepage": "https://github.com/quangle23/postgreSQL-pythonn#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "less-watch-compiler": "^1.16.3",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}

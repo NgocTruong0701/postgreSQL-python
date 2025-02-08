@@ -1,0 +1,1 @@
+type modalType = "create" | "edit"
